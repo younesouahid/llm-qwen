@@ -1,0 +1,97 @@
+
+# ==========================================
+# Python / FastAPI
+# ==========================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ==========================================
+# Python Virtual Environments / Conda
+# ==========================================
+venv/
+.venv/
+env/
+.env/
+conda-env/
+.conda/
+
+# ==========================================
+# Environment Variables / Secrets
+# ==========================================
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.json
+
+# ==========================================
+# Qwen / Hugging Face Models
+# ==========================================
+Qwen2.5-1.5B-Instruct/
+models/
+checkpoints/
+*.safetensors
+*.gguf
+*.ggml
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Hugging Face Cache
+.cache/
+huggingface/
+.huggingface/
+
+# ==========================================
+# Angular / Node.js
+# ==========================================
+**/node_modules/
+**/.angular/
+**/dist/
+**/.cache/
+**/coverage/
+
+# Build outputs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==========================================
+# IDE / Editors
+# ==========================================
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# ==========================================
+# Operating System
+# ==========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# PDF / Uploaded Documents
+# ==========================================
+uploads/
+temp/
+tmp/
+
+# ==========================================
+# Logs
+# ==========================================
+*.log
+logs/

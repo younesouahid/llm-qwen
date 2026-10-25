@@ -1,0 +1,79 @@
+
+<div class="chat-container">
+
+  <header class="chat-header">
+    <div class="brand">
+      <div class="avatar">Q</div>
+      <div>
+        <h2>Qwen Chat</h2>
+        <span>● Local AI Model</span>
+      </div>
+    </div>
+
+    <button
+      class="clear-btn"
+      (click)="clearConversation()"
+      [disabled]="loading()">
+      Clear chat
+    </button>
+  </header>
+
+  <main class="messages">
+
+    @if (messages().length === 0) {
+      <div class="welcome">
+        <div class="welcome-icon">✦</div>
+        <h1>Welcome to Qwen</h1>
+        <p>Ask me anything to start a conversation.</p>
+      </div>
+    }
+
+    @for (message of messages(); track $index) {
+      <div
+        class="message"
+        [class.user]="message.role === 'user'"
+        [class.assistant]="message.role === 'assistant'">
+
+        <div class="bubble">
+          {{ message.content }}
+
+          @if (
+            loading() &&
+            $last &&
+            message.role === 'assistant'
+          ) {
+            <span class="cursor">▋</span>
+          }
+        </div>
+
+      </div>
+    }
+
+  </main>
+
+  <footer class="chat-footer">
+
+    <form (ngSubmit)="sendMessage()" class="input-area">
+
+      <input
+        type="text"
+        name="prompt"
+        [(ngModel)]="prompt"
+        placeholder="Ask Qwen anything..."
+        [disabled]="loading()"
+        autocomplete="off"
+      />
+
+      <button
+        type="submit"
+        [disabled]="loading() || !prompt.trim()">
+        {{ loading() ? 'Thinking...' : 'Send' }}
+      </button>
+
+    </form>
+
+    <p>Qwen2.5-1.5B · Powered by FastAPI</p>
+
+  </footer>
+
+</div>
